@@ -1,4 +1,7 @@
-# jQuery DateTimePicker
+# jQuery DateTimePicker Legacy
+
+This is a fork of [xdan's plugin](https://github.com/xdan/datetimepicker/releases) with extended browser support
+
 [Demo and Documentation](https://xdsoft.net/jqplugins/datetimepicker/)
 
 [![Build Status](https://travis-ci.org/xdan/datetimepicker.svg?branch=master)](https://travis-ci.org/xdan/datetimepicker)

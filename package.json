@@ -1,20 +1,24 @@
 {
-  "name": "jquery-datetimepicker",
-  "version": "2.5.21",
-  "description": "jQuery Plugin DateTimePicker it is DatePicker and TimePicker in one",
-  "main": "build/jquery.datetimepicker.full.min.js",
+  "name": "jquery-datetimepicker-legacy",
+  "version": "2.6.0",
+  "description": "jQuery Plugin DateTimePicker Legacy it is DatePicker and TimePicker in one with extended browser support",
+  "main": "build/jquery.datetimepicker.legacy.full.min.js",
   "scripts": {
-    "test": "karma start --browsers Firefox karma.conf.js --single-run",
     "concat": "concat-cli -f node_modules/php-date-formatter/js/php-date-formatter.min.js jquery.datetimepicker.js node_modules/jquery-mousewheel/jquery.mousewheel.js -o build/jquery.datetimepicker.full.js",
     "minify": "uglifyjs jquery.datetimepicker.js -c -m -o build/jquery.datetimepicker.min.js && uglifycss jquery.datetimepicker.css > build/jquery.datetimepicker.min.css",
     "minifyconcat": "uglifyjs build/jquery.datetimepicker.full.js -c -m -o build/jquery.datetimepicker.full.min.js",
-    "github": "git add --all  && git commit -m \"New version %npm_package_version% \" && git tag %npm_package_version% && git push --tags origin HEAD:master && npm publish",
-    "build": "npm run minify && npm run concat && npm run minifyconcat",
-    "public": "npm run test && npm version patch --no-git-tag-version && npm run build && npm run github"
+    "build:css": "postcss build/jquery.datetimepicker.min.css -o build/jquery.datetimepicker.legacy.min.css",
+    "build:js": "babel build/jquery.datetimepicker.min.js -o build/jquery.datetimepicker.legacy.min.js --compact && babel build/jquery.datetimepicker.full.min.js -o build/jquery.datetimepicker.legacy.full.min.js --compact && babel build/jquery.datetimepicker.full.js -o build/jquery.datetimepicker.legacy.full.js",
+    "build": "npm run minify && npm run concat && npm run minifyconcat && npm run test && npm run build:css && npm run build:js",
+    "github": "git add --all  && git commit -m \"New version %npm_package_version%\" && git tag %npm_package_version% && git push --tags origin HEAD:master && npm publish",
+    "public": "npm version patch --no-git-tag-version && npm run build && npm run github",
+    "lint:css": "stylelint build/*.css",
+    "lint:js": "eslint build/*.js",
+    "test": "npm run lint:css && npm run lint:js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/xdan/datetimepicker.git"
+    "url": "https://github.com/Gruven/datetimepicker.git"
   },
   "keywords": [
     "jquery-plugin",
@@ -28,24 +32,67 @@
   "author": "Chupurnov <chupurnov@gmail.com> (https://xdsoft.net/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xdan/datetimepicker/issues"
+    "url": "https://github.com/Gruven/datetimepicker/issues"
   },
-  "homepage": "https://github.com/xdan/datetimepicker",
+  "homepage": "https://github.com/Gruven/datetimepicker",
   "dependencies": {
-    "jquery": ">= 1.7.2",
+    "jquery": "^3.4.1",
     "jquery-mousewheel": ">= 3.1.13",
     "php-date-formatter": "^1.3.4"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "concat": "azer/concat",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "autoprefixer": "^8.4.1",
+    "concat": "github:azer/concat",
     "concat-cli": "^4.0.0",
-    "karma": "^2.0.0",
-    "karma-chai": "^0.1.0",
-    "karma-firefox-launcher": "^1.1.0",
-    "karma-mocha": "^1.3.0",
-    "mocha": "^5.0.4",
-    "uglify-js": "^3.4.9",
-    "uglifycss": "^0.0.27"
+    "eslint": "^4.19.1",
+    "eslint-plugin-compat": "^2.2.0",
+    "postcss-cli": "^5.0.0",
+    "postcss-normalize": "^4.0.0",
+    "postcss-preset-env": "^4.1.0",
+    "stylelint": "^9.2.0",
+    "stylelint-no-unsupported-browser-features": "^3.0.0",
+    "uglify-js": "^3.5.15",
+    "uglifycss": "^0.0.29"
+  },
+  "browserslist": [
+    "IE >= 9",
+    "last 7 years"
+  ],
+  "postcss": {
+    "plugins": {
+      "postcss-normalize": {},
+      "postcss-preset-env": {},
+      "autoprefixer": {}
+    }
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env"
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 6
+    },
+    "plugins": [
+      "compat"
+    ],
+    "rules": {
+      "compat/compat": "warn"
+    }
+  },
+  "stylelint": {
+    "plugins": [
+      "stylelint-no-unsupported-browser-features"
+    ],
+    "rules": {
+      "plugin/no-unsupported-browser-features": true
+    },
+    "defaultSeverity": "warning"
   }
 }
