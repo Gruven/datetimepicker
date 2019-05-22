@@ -4,14 +4,14 @@ This is a fork of [xdan's plugin](https://github.com/xdan/datetimepicker/release
 
 [Demo and Documentation](https://xdsoft.net/jqplugins/datetimepicker/)
 
-[![Build Status](https://travis-ci.org/xdan/datetimepicker.svg?branch=master)](https://travis-ci.org/xdan/datetimepicker)
-[![npm version](https://badge.fury.io/js/jquery-datetimepicker.svg)](https://badge.fury.io/js/jquery-datetimepicker)
-[![npm](https://img.shields.io/npm/dm/jquery-datetimepicker.svg)](https://www.npmjs.com/package/jquery-datetimepicker)
+[![Build Status](https://travis-ci.org/Gruven/datetimepicker.svg?branch=master)](https://travis-ci.org/Gruven/datetimepicker)
+[![npm version](https://badge.fury.io/js/jquery-datetimepicker-legacy.svg)](https://badge.fury.io/js/jquery-datetimepicker-legacy)
+[![npm](https://img.shields.io/npm/dm/jquery-datetimepicker-legacy.svg)](https://www.npmjs.com/package/jquery-datetimepicker-legacy)
 
 
 
 PLEASE. Help me update documentation.
-[Doc.tpl](https://github.com/xdan/datetimepicker/blob/master/doc.tpl)
+[Doc.tpl](https://github.com/Gruven/datetimepicker/blob/master/doc.tpl)
 This file will be automatically displayed on the site
 
 # Installation
@@ -23,7 +23,7 @@ OR
 ```bash
 yarn add jquery-datetimepicker
 ```
-or download [zip](https://github.com/xdan/datetimepicker/releases)
+or download [zip](https://github.com/Gruven/datetimepicker/releases)
 # datetimepicker
 ==============
 
