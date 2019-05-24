@@ -17,12 +17,9 @@ This file will be automatically displayed on the site
 # Installation
 
 ```bash
-npm install jquery-datetimepicker
+npm install jquery-datetimepicker-legacy
 ```
-OR
-```bash
-yarn add jquery-datetimepicker
-```
+
 or download [zip](https://github.com/Gruven/datetimepicker/releases)
 # datetimepicker
 ==============
