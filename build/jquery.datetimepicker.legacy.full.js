@@ -926,7 +926,9 @@ var datetimepickerFactory = function datetimepickerFactory($) {
   };
 
   var isFormatStandard = function isFormatStandard(format) {
-    return Object.values(standardFormats).indexOf(format) === -1 ? false : true;
+    return Object.keys(standardFormats).map(function (e) {
+      return standardFormats[e];
+    }).indexOf(format) === -1 ? false : true;
   };
 
   $.extend($.datetimepicker, standardFormats); // first init date formatter

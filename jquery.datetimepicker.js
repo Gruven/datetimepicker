@@ -729,7 +729,9 @@ var datetimepickerFactory = function ($) {
 	}
 
 	var isFormatStandard = function(format){
-		return Object.values(standardFormats).indexOf(format) === -1 ? false : true;
+    return Object.keys(standardFormats).map(function(e) {
+      return standardFormats[e];
+    }).indexOf(format) === -1 ? false : true;
 	}
 
 	$.extend($.datetimepicker, standardFormats);
