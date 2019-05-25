@@ -1,6 +1,6 @@
 {
   "name": "jquery-datetimepicker-legacy",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "description": "jQuery Plugin DateTimePicker Legacy it is DatePicker and TimePicker in one with extended browser support",
   "main": "build/jquery.datetimepicker.legacy.full.min.js",
   "scripts": {
